@@ -20,9 +20,11 @@ Autor: Daniel "Cancrexo" Prol · [cancrexo@gmail.com](mailto:cancrexo@gmail.com)
 
 1. Copia la carpeta del plugin en `wp-content/plugins/sjb-rgpd-gtm`.
 2. En el escritorio de WordPress: **Plugins → Plugins instalados**.
-3. Activa **SJB RGPD para Tag Manager**.
+3. Activa **SJB RGPD para Tag Manager**. Hace falta que GDPR Cookie Compliance esté instalado y activo.
 
-El contenedor y la lista de países están en `sjb-rgpd-gtm.php` (`GTM_ID` y `REGIONES_RESTRINGIDAS`). No hay pantalla de ajustes.
+El contenedor no se escribe aquí. Se lee en cada carga del Consent Mode v2 de GDPR Cookie Compliance (`gtmc2_id`). La lista de países sigue en `sjb-rgpd-gtm.php`.
+
+Ruta: **Ajustes → SJB RGPD Tag Manager**. La pantalla solo informa: qué hace el plugin y qué contenedor está usando. Si el otro plugin está apagado, o Consent Mode v2 no tiene un identificador `GTM-`, esta web no carga Tag Manager.
 
 ---
 
@@ -45,7 +47,7 @@ Un valor `1` es `granted`. Cualquier otro valor, o una clave ausente, es `denied
 3. Si todavía no hay cookie, manda dos valores por defecto:
    - **Denegado** (`ad_storage`, `ad_user_data`, `ad_personalization`, `analytics_storage`) en el EEE, Reino Unido y Suiza.
    - **Concedido** en el resto de países.
-4. Carga el contenedor `GTM-P49NW7VH`.
+4. Carga el contenedor `GTM-` leído de Consent Mode v2. Si no hay ninguno, no imprime nada y deja el snippet de GDPR Cookie Compliance como estaba.
 
 ---
 
